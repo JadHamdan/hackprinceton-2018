@@ -1,13 +1,13 @@
 {
-  "main.css": "marcelgoh.github.io/coursetalk/static/css/main.e4e050f6.chunk.css",
-  "main.js": "marcelgoh.github.io/coursetalk/static/js/main.7d3b4cda.chunk.js",
-  "main.js.map": "marcelgoh.github.io/coursetalk/static/js/main.7d3b4cda.chunk.js.map",
-  "static/js/1.78edcd9e.chunk.js": "marcelgoh.github.io/coursetalk/static/js/1.78edcd9e.chunk.js",
-  "static/js/1.78edcd9e.chunk.js.map": "marcelgoh.github.io/coursetalk/static/js/1.78edcd9e.chunk.js.map",
-  "runtime~main.js": "marcelgoh.github.io/coursetalk/static/js/runtime~main.0f81952d.js",
-  "runtime~main.js.map": "marcelgoh.github.io/coursetalk/static/js/runtime~main.0f81952d.js.map",
-  "static/css/main.e4e050f6.chunk.css.map": "marcelgoh.github.io/coursetalk/static/css/main.e4e050f6.chunk.css.map",
-  "index.html": "marcelgoh.github.io/coursetalk/index.html",
-  "precache-manifest.d37777ddb2174f70d2a00ec56929b6eb.js": "marcelgoh.github.io/coursetalk/precache-manifest.d37777ddb2174f70d2a00ec56929b6eb.js",
-  "service-worker.js": "marcelgoh.github.io/coursetalk/service-worker.js"
+  "main.css": "/hackprinceton-2018/static/css/main.ffad796b.chunk.css",
+  "main.js": "/hackprinceton-2018/static/js/main.3b7b2da6.chunk.js",
+  "main.js.map": "/hackprinceton-2018/static/js/main.3b7b2da6.chunk.js.map",
+  "static/js/1.bfad83d9.chunk.js": "/hackprinceton-2018/static/js/1.bfad83d9.chunk.js",
+  "static/js/1.bfad83d9.chunk.js.map": "/hackprinceton-2018/static/js/1.bfad83d9.chunk.js.map",
+  "runtime~main.js": "/hackprinceton-2018/static/js/runtime~main.dc60ab3c.js",
+  "runtime~main.js.map": "/hackprinceton-2018/static/js/runtime~main.dc60ab3c.js.map",
+  "static/css/main.ffad796b.chunk.css.map": "/hackprinceton-2018/static/css/main.ffad796b.chunk.css.map",
+  "index.html": "/hackprinceton-2018/index.html",
+  "precache-manifest.e76ec417ca7dc9a747fb2c1b2965ae70.js": "/hackprinceton-2018/precache-manifest.e76ec417ca7dc9a747fb2c1b2965ae70.js",
+  "service-worker.js": "/hackprinceton-2018/service-worker.js"
 }

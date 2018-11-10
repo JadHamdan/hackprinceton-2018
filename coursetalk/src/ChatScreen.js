@@ -1,17 +1,29 @@
 import React, { Component } from 'react'
 import Chatkit from '@pusher/chatkit-client'
+import MessageList from './components/MessageList'
+import SendMessageForm from './components/SendMessageForm'
 
 class ChatScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentUser: {}
+            currentUser: {},
+            currentRoom: {},
+            messages: []
         }
+        this.sendMessage = this.sendMessage.bind(this)
+    }
+
+    sendMessage(text) {
+        this.state.currentUser.sendMessage({
+            text,
+            roomId: this.state.currentRoom.id,
+        })
     }
 
     componentDidMount () {
         const chatManager = new Chatkit.ChatManager({
-            instanceLocator: 'v1:us1:3b31d86f-e2f8-4671-92e2-3a0e2d460298', // from Chatkit
+            instanceLocator: 'v1:us1:3b31d86f-e2f8-4671-92e2-3a0e2d460298', // ID from Chatkit
             userId: this.props.currentUsername,
             tokenProvider: new Chatkit.TokenProvider({
                 url: 'http://localhost:3001/authenticate',
@@ -22,6 +34,20 @@ class ChatScreen extends Component {
             .connect()
             .then(currentUser => {
                 this.setState({ currentUser })
+                return currentUser.subscribeToRoom({
+                    roomId: "19379093",  // Room ID from Chatkit
+                    messageLimit: 100,
+                    hooks: {
+                        onMessage: message => {
+                            this.setState({
+                                messages: [...this.state.messages, message],
+                            })
+                        },
+                    },
+                })
+            })
+            .then(currentRoom => {
+                this.setState({ currentRoom })
             })
             .catch(error => console.error('error', error))
     }
@@ -59,7 +85,11 @@ class ChatScreen extends Component {
                         <h2>Who's online PLACEHOLDER</h2>
                     </aside>
                     <section style={styles.chatListContainer}>
-                        <h2>Chat PLACEHOLDER</h2>
+                        <MessageList
+                            messages={this.state.messages}
+                            style={styles.chatList}
+                        />
+                        <SendMessageForm onSubmit={this.sendMessage} />
                     </section>
                 </div>
             </div>

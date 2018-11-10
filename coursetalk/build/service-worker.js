@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "marcelgoh.github.io/coursetalk/precache-manifest.d37777ddb2174f70d2a00ec56929b6eb.js"
+  "/hackprinceton-2018/precache-manifest.e76ec417ca7dc9a747fb2c1b2965ae70.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("marcelgoh.github.io/coursetalk/index.html", {
+workbox.routing.registerNavigationRoute("/hackprinceton-2018/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
