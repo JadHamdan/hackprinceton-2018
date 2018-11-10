@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hackprinceton-2018/precache-manifest.e76ec417ca7dc9a747fb2c1b2965ae70.js"
+  "/hackprinceton-2018/precache-manifest.fbc099f635ed7a06343273e71679ac4a.js"
 );
 
 workbox.clientsClaim();
