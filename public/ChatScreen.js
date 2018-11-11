@@ -4,12 +4,14 @@ import MessageList from './components/MessageList'
 import SendMessageForm from './components/SendMessageForm'
 import TypingIndicator from './components/TypingIndicator'
 import WhosOnlineList from './components/WhosOnlineList'
+import SplashScreen from './SplashScreen.js'
 
 class ChatScreen extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
+            back: false,
             currentUser: {},
             currentRoom: {},
             messages: [],
@@ -17,6 +19,11 @@ class ChatScreen extends Component {
         }
         this.sendMessage = this.sendMessage.bind(this)
         this.sendTypingEvent = this.sendTypingEvent.bind(this)
+        this.backPressed = this.backPressed.bind(this)
+    }
+
+    backPressed() {
+        this.setState({ back: true })
     }
 
     sendTypingEvent() {
@@ -101,31 +108,46 @@ class ChatScreen extends Component {
                 display: 'flex',
                 flexDirection: 'column',
             },
+            chatName: {
+                fontSize: 40,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                paddingTop: '25px',
+                paddingBottom: '25px',
+            }
         }
 
-        return (
-            <div style={styles.container}>
-                <div style={styles.chatContainer}>
-                    <aside style={styles.whosOnlineListContainer}>
-                        <WhosOnlineList
-                            currentUser={this.state.currentUser}
-                            users={this.state.currentRoom.users}
-                        />
-                    </aside>
-                    <section style={styles.chatListContainer}>
-                        <MessageList
-                            messages={this.state.messages}
-                            style={styles.chatList}
-                        />
-                        <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
-                        <SendMessageForm
-                            onSubmit={this.sendMessage}
-                            onChange={this.sendTypingEvent}
-                        />
-                    </section>
+        if (this.state.back === false) {
+            return (
+                <div style={styles.container}>
+                    <div style={styles.chatContainer}>
+                        <aside style={styles.whosOnlineListContainer}>
+                            <button onClick={this.backPressed}>&lt;- Back</button>
+                            <div style={styles.chatName}>
+                                {this.props.currentRoomName}
+                            </div>
+                            <WhosOnlineList
+                                currentUser={this.state.currentUser}
+                                users={this.state.currentRoom.users}
+                            />
+                        </aside>
+                        <section style={styles.chatListContainer}>
+                            <MessageList
+                                messages={this.state.messages}
+                                style={styles.chatList}
+                            />
+                            <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
+                            <SendMessageForm
+                                onSubmit={this.sendMessage}
+                                onChange={this.sendTypingEvent}
+                            />
+                        </section>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return <SplashScreen name={this.props.currentUsername}/>
+        }
     }
 }
 

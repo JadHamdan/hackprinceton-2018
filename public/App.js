@@ -37,6 +37,7 @@ class App extends Component {
             return <UsernameForm onSubmit={this.onUsernameSubmitted} />
         }
         if (this.state.currentScreen === 'SplashScreen') {
+            console.log(this.state.currentUsername)
             return <SplashScreen name={this.state.currentUsername} submitted={false}/>
         }
         if (this.state.currentScreen === 'ChatScreen') {

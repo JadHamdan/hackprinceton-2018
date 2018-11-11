@@ -8,8 +8,7 @@ class SplashScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            submitted: this.props.submitted,
-            currentUsername: this.props.name,
+            submitted: false,
             roomID: '',
             roomName: '',
         }
@@ -22,7 +21,6 @@ class SplashScreen extends Component {
     /* jank alert: 4 different functions for 4 different chat rooms #doitforthedemo */
     setCOMP202() {
         this.setState({
-            currentUsername: this.props.name,
             roomID: '19379357',
             roomName: 'COMP 202',
             submitted: true,
@@ -30,7 +28,6 @@ class SplashScreen extends Component {
     }
     setLING330() {
         this.setState({
-            currentUsername: this.props.name,
             roomID: '19379350',
             roomName: 'LING 330',
             submitted: true,
@@ -38,7 +35,6 @@ class SplashScreen extends Component {
     }
     setMATH240() {
         this.setState({
-            currentUsername: this.props.name,
             roomID: '19379349',
             roomName: 'MATH 240',
             submitted: true,
@@ -46,7 +42,6 @@ class SplashScreen extends Component {
     }
     setPHYS131() {
         this.setState({
-            currentUsername: this.props.name,
             roomID: '19379358',
             roomName: 'PHYS 131',
             submitted: true,
@@ -71,8 +66,9 @@ class SplashScreen extends Component {
                 </div>
             )
         } else {
+            console.log(this.props.name)
             return <ChatScreen
-                       currentUsername={this.state.currentUsername}
+                       currentUsername={this.props.name}
                        currentRoomNumber={this.state.roomID}
                        currentRoomName={this.state.roomName}
                    />
