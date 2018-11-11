@@ -114,7 +114,10 @@ class ChatScreen extends Component {
                 textAlign: 'center',
                 paddingTop: '25px',
                 paddingBottom: '25px',
-            }
+            },
+            back: {
+                color: 'black',
+            },
         }
 
         if (this.state.back === false) {
@@ -122,7 +125,7 @@ class ChatScreen extends Component {
                 <div style={styles.container}>
                     <div style={styles.chatContainer}>
                         <aside style={styles.whosOnlineListContainer}>
-                            <button onClick={this.backPressed}>&lt;- Back</button>
+                            <button style={styles.back} onClick={this.backPressed}>&lt;- Back</button>
                             <div style={styles.chatName}>
                                 {this.props.currentRoomName}
                             </div>
