@@ -4,18 +4,20 @@ var config = {
   entry: './public/main.js',
   output: {
     path: path.resolve(__dirname),
-    filename: 'public/index.js',
+    filename: 'bundle.js',
     crossOriginLoading: 'anonymous',
   },
   mode: 'development',
   devServer: {
+    contentBase: "./public",
+    hot: true,
     inline: true,
     port: 5000
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -23,6 +25,9 @@ var config = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css']
   }
 }
 
