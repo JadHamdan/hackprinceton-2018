@@ -33,6 +33,7 @@ class WhosOnlineList extends Component {
 
 class WhosOnlineListItem extends Component {
     render() {
+        const colour = this.props.presenceState === 'online' ? '#539eff' : '#414756'
         const styles = {
             li: {
                 display: 'flex',
@@ -47,17 +48,12 @@ class WhosOnlineListItem extends Component {
                 width: 11,
                 height: 11,
                 marginRight: 10,
+                backgroundColor: colour,
             },
         }
         return (
             <li style={styles.li}>
-                <div
-                    style={{
-                        ...styles.div,
-                        backgroundColor:
-                            this.props.presenceState === 'online' ? '#539eff' : '#414756',
-                    }}
-                />
+                <div style={styles.div} />
                 {this.props.children}
             </li>
         )

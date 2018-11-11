@@ -34,10 +34,10 @@ class MessageList extends Component {
         }
         return (
             <div
-                style={{
-                    ...this.props.style,
-                    ...styles.container,
-                }}
+                 style={
+                     //this.props.style
+                     styles.container
+                 }
             >
                 <ul style={styles.ul}>
                     {this.props.messages.map((message, index) => (

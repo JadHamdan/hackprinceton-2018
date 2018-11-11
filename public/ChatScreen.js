@@ -36,7 +36,7 @@ class ChatScreen extends Component {
             instanceLocator: 'v1:us1:3b31d86f-e2f8-4671-92e2-3a0e2d460298', // ID from Chatkit
             userId: this.props.currentUsername,
             tokenProvider: new Chatkit.TokenProvider({
-                url: 'http://localhost:3001/authenticate',
+                url: '/authenticate',
             }),
         })
 
