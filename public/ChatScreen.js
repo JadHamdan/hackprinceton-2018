@@ -6,6 +6,7 @@ import TypingIndicator from './components/TypingIndicator'
 import WhosOnlineList from './components/WhosOnlineList'
 
 class ChatScreen extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -45,7 +46,7 @@ class ChatScreen extends Component {
             .then(currentUser => {
                 this.setState({ currentUser })
                 return currentUser.subscribeToRoom({
-                    roomId: "19379271",  // Room ID from Chatkit
+                    roomId: this.props.currentRoomNumber,  // Room ID 
                     messageLimit: 100,
                     hooks: {
                         onMessage: message => {
