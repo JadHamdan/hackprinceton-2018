@@ -8,8 +8,9 @@ class App extends Component {
         super()
         this.state = {
             currentUsername: '',
+            currentRoomNumber: '',
+            currentRoomName: '',
             currentScreen: 'WhatIsYourUsernameScreen',
-            currentRoomNumber: '19379345',
         }
         this.onUsernameSubmitted = this.onUsernameSubmitted.bind(this)
     }
@@ -25,7 +26,7 @@ class App extends Component {
             .then(response => {
                 this.setState({
                     currentUsername: username,
-                    currentScreen: 'ChatScreen'
+                    currentScreen: 'SplashScreen',
                 })
             })
             .catch(error => console.error('error', error))
@@ -36,12 +37,13 @@ class App extends Component {
             return <UsernameForm onSubmit={this.onUsernameSubmitted} />
         }
         if (this.state.currentScreen === 'SplashScreen') {
-            return <SplashScreen />
+            return <SplashScreen name={this.state.currentUsername} submitted={false}/>
         }
         if (this.state.currentScreen === 'ChatScreen') {
             return <ChatScreen
                        currentUsername={this.state.currentUsername}
                        currentRoomNumber={this.state.currentRoomNumber}
+                       currentRoomName={this.state.currentRoomName}
                    />
         }
     }
